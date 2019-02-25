@@ -58,7 +58,26 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+   function playSound(event) {
+        var audioElement = document.querySelector("audio[data-key='"+event.keyCode+"']");
+        if(!audioElement) return; // when user press a different key form the listed ones
 
+        var keyElement = document.querySelector(".keys div[data-key='"+event.keyCode+"']");
+        keyElement.classList.add("playing");
+
+        audioElement.currentTime = 0; //rewind the time, to play it multiple times
+        audioElement.play();
+    };
+    
+    //document.addEventListener('keydown', function(e){}) :: pay attention to the arrow function
+      document.addEventListener('keydown', playSound);
+
+      document.addEventListener('keyup', (event) => {
+        var keyElement = document.querySelector(".keys div[data-key='"+event.keyCode+"']");
+        if(!keyElement) return;
+        keyElement.classList.remove("playing");
+      });
+      
 </script>
 
 
