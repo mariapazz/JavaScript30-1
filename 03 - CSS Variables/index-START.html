@@ -22,6 +22,22 @@
 
   <style>
 
+    :root {
+      --base: #8ff804;
+      --blur: 5px;
+      --spacing: 7px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background-color: var(--base);
+      filter: blur(var(--spacing));
+    }
+
+    .hl {
+      color: var(--base);
+    }
+
     /*
       misc styles, nothing to do with CSS variables
     */
@@ -45,6 +61,11 @@
   </style>
 
   <script>
+
+    const inputs = document.querySelectorAll(".controls input");
+    
+    function handleChange() 
+
   </script>
 
 </body>
