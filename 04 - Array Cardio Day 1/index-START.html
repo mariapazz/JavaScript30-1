@@ -27,8 +27,7 @@
       { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
     ];
 
-    const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
-
+    
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 
@@ -45,7 +44,7 @@
 // 2. Give us an array of the inventors' first and last names. 
 // Map always return the same ammount of items that you give it. Transforms the given array into something
 
-    const namesArray = inventors.map(function(obj){ 
+    const namesArray = inventors.map(function(obj) { 
       var nameInventor = obj.first+" "+obj.last;
       return nameInventor;
     });
@@ -114,17 +113,28 @@
 
     //console.log(boulevardsFilter);
 
-    // 7. sort Exercise
-    // Sort the people alphabetically by last name
+// 7. sort Exercise
+// Sort the people alphabetically by last name
 
-    const byLastname = inventors.sort(function(prev, next) {
-      prev.last < next.last ? -1 : 1;
-    });
-    console.table(byLastname);
+    const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
 
-    // 8. Reduce Exercise
-    // Sum up the instances of each of these
+    const byLastname = people.sort((prev, next) => prev.last < next.last ? -1 : 1);
+    //console.log(byLastname);
+
+// 8. Reduce Exercise
+// Sum up the instances of each of these
+
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    
+    const transportOptions = data.reduce(function(obj, item) {
+        if(!obj[item]) {
+          obj[item] = 0;
+        }
+        obj[item]++;
+        return obj;
+    }, {});
+
+    console.log(transportOptions);
 
   </script>
 </body>
